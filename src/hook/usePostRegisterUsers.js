@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { REST_API } from "../util/linkApi";
+import { REST_API } from "../util/linkApi";
 
 const usePostRegisterUsers = (data, activeHook) => {
     const [response, setRespone] = useState({ email: { active: false, text: null }, password: { active: false, text: null } });
@@ -14,7 +14,7 @@ const usePostRegisterUsers = (data, activeHook) => {
                 setLoading(true)
                 setStopOnHook(true)
                 try {
-                    await axios.post("http://localhost:5000/users", data)
+                    await axios.post(`${REST_API}users`, data)
                         .then((res) => {
                             let data = res.data;
                             setAlertSuccessRegis({ active: true, name: data.name });
