@@ -4,8 +4,6 @@ import { useParams } from "react-router-dom";
 const SearchEmpty = () => {
     const { search } = useParams();
 
-    console.log(search)
-
     return (
         <>
             <div className="grid justify-items-center mt-8 mb-8">

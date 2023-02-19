@@ -6,8 +6,6 @@ const useBodyScrollLock = () => {
     const [isLocked, setIsLocked] = useState(false);
     const [dimensi, setDimensi] = useState(false);
 
-    console.log(dimensi)
-
     useEffect(() => {
         if (window.innerHeight <= 374 && window.innerWidth <= 833) {
             setDimensi(d => !d)
