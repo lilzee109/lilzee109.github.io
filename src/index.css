@@ -1,13 +1,275 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+.slide-out-right {
+	animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+.slide-in-right {
+	animation: slide-in-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@keyframes slide-out-right {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.slide-out-left {
+	animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
+@keyframes slide-out-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+}
+.slide-in-left {
+	animation: slide-in-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+.container-app{
+  @apply w-[90%] 2xl:w-[84.4rem] mx-auto
+}
+body{
+  font-family: 'Oswald', sans-serif;
+  @apply font-normal
+}
+
+
+/* NAVBAR */
+.parent-navbar{
+  @apply flex justify-between py-4 gap-3
+}
+.parent-icon_nav{
+  @apply flex items-center gap-5 sm:gap-10
+}
+.parent_navbar-scroll{
+  @apply fixed top-0 w-full z-20 bg-white shadow-[0px_0px_5px_0px] shadow-gray-400/50
+}
+
+/* USERS */
+.parent_fitur-login{
+  @apply absolute top-[2.5rem] sm:top-[3.5rem] bg-white z-[20] right-[-1rem] font-light shadow-[0px_0px_10px] shadow-black/50 scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100
+}
+.nav-users{
+  @apply cursor-pointer hover:text-primary transition-all duration-300 text-lg sm:text-2xl
+}
+.nav-users-login{
+  @apply cursor-pointer transition-all duration-300 bg-primary text-white py-2 sm:py-3 px-2 sm:px-3 rounded-full text-lg sm:text-2xl
+}
+.btn_nav-profile{
+  @apply py-1 px-3 sm:px-5 text-base sm:text-lg cursor-pointer hover:text-primary transition-all duration-300
+}
+.btn_nav-logout{
+  @apply py-1 px-3 sm:px-5 text-base sm:text-lg cursor-pointer hover:text-primary transition-all duration-300
+}
+/* USERS END */
+
+/* Search Product */
+.text-placeholder{
+  @apply absolute text-xs sm:text-sm sm:-mt-1 text-gray-300 capitalize pl-3 sm:pl-5 transition-all duration-300 group-focus-within:text-primary 
+  group-focus-within:-mt-5 sm:group-focus-within:-mt-6 group-focus-within:text-[10px] sm:group-focus-within:text-xs
+}
+.text-placeholder-aktif{
+  @apply absolute text-[10px] sm:text-xs capitalize pl-3 sm:pl-5 transition-all duration-300 text-primary -mt-5 sm:-mt-6
+}
+.input-search-product{
+  @apply  pl-3 pr-[4rem] sm:pl-5 sm:pr-[4.5rem] pt-4 pb-[2px] sm:pb-1 sm:pt-5 ring-2 text-xs sm:text-sm ring-gray-300 text-gray-500 rounded-md w-full relative z-[1] bg-transparent
+  focus:outline-none focus:ring-primary focus:pt-4 sm:focus:pt-5 focus:pb-[2px] sm:focus:pb-1
+}
+.input-search-product-aktif{
+  @apply  pl-3 pr-[4rem] sm:pl-5 sm:pr-[4.5rem] ring-2 text-gray-500 rounded-md text-xs sm:text-sm w-full relative z-[1] bg-transparent
+  focus:outline-none ring-primary pt-4 sm:pt-5 pb-[2px] sm:pb-1
+}
+.btn-icon-default{
+  @apply absolute flex items-center px-4 right-0 ring-2 h-full rounded-md ring-gray-300 text-2xl text-primary cursor-pointer
+  group-focus-within:hidden
+}
+/* Search Product End */
+
+/* Total Product Bag */
+.total-product-bag{
+  @apply absolute bg-primary text-white rounded-full
+}
+/* Total Product Bag End */
+
+/* Form Register Or Login */
+.container_regis-or-login{
+  @apply overflow-hidden absolute w-full h-full sm:relative
+}
+.parent_box-form{
+  @apply relative w-full mx-auto transition-all duration-300 top-[50rem] sm:top-0 sm:scale-0
+}
+.parent_box-form-aktif{
+  @apply relative w-full lg:w-auto mx-auto transition-all duration-300 top-[0rem] sm:scale-100 delay-300
+}
+.box-form{
+  @apply bg-white relative w-[100%] sm:w-[95%] lg:w-[55rem] h-[26rem] 360:h-[35rem] mx-auto rounded-t-[2rem] sm:rounded-[2rem] overflow-hidden sm:grid sm:grid-cols-2
+}
+.box-form-mobile{
+  @apply bg-white relative w-[100%] sm:w-[95%] lg:w-[55rem] h-[17rem] 600:h-[18rem] mt-6 mx-auto 600:rounded-t-[2rem] sm:rounded-[2rem] overflow-hidden sm:grid sm:grid-cols-2
+}
+.scroll-mobile{
+  @apply overflow-auto py-4
+}
+.scroll-mobile::-webkit-scrollbar{
+  @apply w-[1px]
+}
+.scroll-mobile::-webkit-scrollbar-track{
+  @apply bg-gray-100
+}
+.scroll-mobile::-webkit-scrollbar-thumb{
+  @apply bg-primary/50 rounded-full
+}
+.bg-black_from{
+  @apply fixed top-[50rem] bg-black/0 w-full h-screen z-50 text-sm transition-all duration-300 sm:top-0 scale-0 delay-300
+}
+.bg-black_from-aktif{
+  @apply fixed top-0 bg-black/50 w-full h-screen z-50 text-sm transition-all duration-300 scale-100
+}
+.btn_regis-login{
+  @apply capitalize text-base bg-primary/70 text-white py-1 px-7 rounded-md mt-[2rem] sm:mt-10 transition-all duration-300 relative z-[1]
+  hover:bg-primary focus:outline-none
+}
+.parent_form{
+  @apply flex flex-col items-center justify-center h-full w-full transition-all duration-500 text-center 
+}
+.judul{
+  @apply text-2xl font-semibold relative z-[1]
+}
+.text-form{
+  @apply text-sm text-gray-400 mt-2 mb-8 w-[90%] mx-auto relative z-[1]
+}
+.parent_input-form{
+  @apply grid gap-9 w-[90%] mx-auto relative z-[1]
+}
+.judul-banner{
+  @apply text-white font-semibold text-3xl
+}
+.text-banner{
+  @apply text-white/90 text-sm mt-[.7rem]
+}
+.btn-banner{
+  @apply text-white text-base border-[1px] border-white px-[3rem] py-1 rounded-lg mt-[2rem] transition-all duration-300
+  hover:bg-white hover:text-primary hover:border-white/0
+}
+.parent_banner{
+  @apply bg-primary hidden sm:flex flex-col justify-center items-center h-full w-full transition-all duration-500 delay-300
+}
+.content_banner{
+  @apply absolute text-center transition-all duration-500
+}
+.button_close-login-regis{
+  @apply absolute top-[-2rem] sm:top-[-1.5rem] lg:top-[-1.5rem] right-[.5rem] sm:right-[1rem] lg:right-[0rem] z-[51] text-white text-2xl transition-all duration-300
+  hover:text-red-500
+}
+.button_close-login-regis-mobile{
+  @apply absolute top-[2rem] 600:top-[-2rem] sm:top-[0rem] lg:top-[-1rem] right-[.5rem] sm:right-[1rem] lg:right-[-1rem] z-[51] text-black 600:text-white text-2xl transition-all duration-300
+  hover:text-red-500
+}
+.parent_regis-to-login{
+  @apply flex items-center mt-8 text-gray-400 sm:hidden relative z-[1]
+}
+/* Form Register Or Login End */
+
+/* Input Form */
+.parent-input_form-regis-login{
+  @apply relative flex items-center w-full 
+}
+.form-validasi-warning{
+  @apply ring-2 ring-red-500 font-light rounded-lg pt-5 pb-1 px-3 w-full text-base relative z-[1] bg-transparent
+  focus:outline-none focus:ring-red-500 focus:z-0
+}
+.input_regis-or-login{
+  @apply bg-gray-300/50 relative z-[1] text-base rounded-lg pt-5 pb-1 px-3 w-full font-light
+  focus:outline-none focus:ring-2 focus:ring-primary focus:z-0
+}
+.judul-input_regis-login{
+  @apply absolute left-0 pl-3 text-gray-400 font-light transition-all duration-300
+  group-focus-within:mt-[-1.5rem] group-focus-within:z-[1] group-focus-within:text-sm group-focus-within:font-normal
+}
+.judul-input_regis-login_active{
+  @apply absolute left-0 pl-3 font-normal transition-all duration-300 mt-[-1.5rem]  z-[1] text-sm 
+}
+.validasi-input{
+  @apply text-sm text-red-500 capitalize absolute bottom-[-1.4rem]
+}
+/* Input Form End */
+/* NAVBAR END */
+
+/* ALERT CONFIRMASI REGISTER */
+.parent_confirmasi-regis{
+  @apply fixed z-[60] w-full h-screen flex items-center justify-center bg-black/50
+}
+.box_alert-regis{
+  @apply bg-white w-[20rem] h-[10rem] rounded-2xl shadow-[0px_0px_20px] shadow-black/70 flex flex-col items-center justify-center gap-4
+}
+.btn_conf-regis{
+  @apply bg-primary/70 font-semibold text-white px-[2rem] py-1 rounded-[.5rem] text-lg transition-all duration-300
+  hover:bg-primary
+}
+/* ALERT CONFIRMASI REGISTER END */
+
+/* MAP PRODUCT */
+.pagination{
+  @apply bg-white border-2 text-primary border-primary px-4 py-1 hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer
+}
+.pagination-active{
+  @apply border-2 border-primary px-4 py-1 bg-primary text-white transition-all duration-300 cursor-pointer
+}
+.pagination-icon{
+  @apply border-2 border-primary py-2 px-3 text-primary bg-white transition-all duration-300
+  hover:bg-primary hover:text-white
+}
+.pagination-icon-active{
+  @apply border-2 border-gray-300 py-2 px-3 text-gray-300 bg-white cursor-not-allowed
+}
+.icon-btn{
+  @apply transition-all duration-300
+}
+.icon-btn-active{
+  @apply transition-all duration-300 rotate-180
+}
+.btn-showpage{
+  @apply flex relative items-center gap-1 px-2 py-[2px] border border-black/30 before:absolute before:w-full before:h-full before:left-0 before:top-0 before:bg-transparent before:z-[1]
+}
+.btn-li-show{
+  @apply px-2 py-1 cursor-pointer transition-all duration-300 relative
+}
+.btn-li-show-active{
+  @apply px-2 py-1 cursor-pointer transition-all duration-300 bg-primary/30 relative
+  before:absolute before:left-0 before:top-0 before:h-full before:w-[2px] before:bg-primary
+}
+.parent_showpage{
+  @apply absolute top-[1.85rem] bg-white border border-black/50 w-full
+}
+/* MAP PRODUCT END */
