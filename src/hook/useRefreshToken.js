@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { REST_API } from "../util/linkApi";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
 
 
 const useRefreshToken = () => {
@@ -11,10 +10,9 @@ const useRefreshToken = () => {
     const refreshToken = async () => {
         setLoadingLogin(true)
         try {
-            await axios.get(`${REST_API}token`)
+            await axios.get(`${REST_API}me`)
                 .then((res) => {
-                    const decode = jwt_decode(res.data.accessToken);
-                    setDataUsers(decode)
+                    setDataUsers(res.data)
                     setLoadingLogin(false)
                 })
         } catch (error) {

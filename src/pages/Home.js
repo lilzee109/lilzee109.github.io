@@ -4,16 +4,16 @@ import useGetProducts from "../hook/useGetProducts";
 import { REST_API } from "../util/linkApi";
 
 const Home = ({ dataUsers, setActiveRegisOrLogin }) => {
-    const { data, loading } = useGetProducts(`${REST_API}products`);
+    // const { data, loading } = useGetProducts(`${REST_API}products`);
 
     return (
         <div className="container-app">
-            <MapProduct
+            {/* <MapProduct
                 dataUsers={dataUsers}
                 setActiveRegisOrLogin={setActiveRegisOrLogin}
                 data={data}
                 loading={loading}
-            />
+            /> */}
             <div className="h-[100rem] w-full"></div>
         </div>
     )
