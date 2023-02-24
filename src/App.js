@@ -9,8 +9,6 @@ const App = () => {
   const { dataUsers, refreshToken, loadingLogin } = useRefreshToken();
   const [activeRegisOrLogin, setActiveRegisOrLogin] = useState(false);
 
-  console.log(dataUsers)
-
   return (
     <div>
       <Navbar
