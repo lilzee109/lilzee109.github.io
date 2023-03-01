@@ -267,6 +267,7 @@ const Login = ({ activeForm, updateActive, updateOnOffForm, toggleStopScroll, re
         if (email === false && password === false) {
             try {
                 await axios.post(`${REST_API}login`, input).then((res) => {
+                    console.log(res.data)
                     updateOnOffForm()
                     toggleStopScroll()
                     refreshToken()
