@@ -6,6 +6,7 @@ import axios from "axios";
 const useRefreshToken = () => {
     const [dataUsers, setDataUsers] = useState("");
     const [loadingLogin, setLoadingLogin] = useState(false);
+    axios.defaults.withCredentials = true;
 
     const refreshToken = async () => {
         setLoadingLogin(true)

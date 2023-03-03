@@ -263,6 +263,7 @@ const Login = ({ activeForm, updateActive, updateOnOffForm, toggleStopScroll, re
     const auth = async () => {
         let email = cekValidasi.email.active;
         let password = cekValidasi.password.active;
+        axios.defaults.withCredentials = true;
 
         if (email === false && password === false) {
             try {
