@@ -10,7 +10,7 @@ const useRefreshToken = () => {
     const refreshToken = async () => {
         setLoadingLogin(true)
         try {
-            await axios.get(`${REST_API}auth`)
+            await axios.get(`http://localhost:4000/auth`)
                 .then((res) => {
                     setDataUsers(res.data)
                     setLoadingLogin(false)
